@@ -42,7 +42,7 @@ Everything is nil if it is not defined
 Tables are key value paired list, can be used to create arrays, lists, and even used to implement OOP
  
 Loops in LUA always start at index 1.
-So every table starts at index 1. You don’t have to follow this convention, by just initializing index 0 you can use the table as well.
+So every table starts at index 1. You don’t have to follow this convention, it is possible to write onto the index 0. But it is recommended to use 1 as starting index.
 
 ### Example
 ```lua
