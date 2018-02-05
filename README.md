@@ -76,12 +76,12 @@ table --> table.concat(variabel, ", ")
 ```
 ## Relational Operators
 ### Description
-greater than >
-smaller than <
-same or greater >=
-same or smaller <=
-same ==
-not same ~=
+greater than >  
+smaller than <  
+same or greater >=  
+same or smaller <=  
+same == br  
+not same ~=  
 
 ### Example
 ```lua
@@ -118,10 +118,10 @@ print(myLocal) --> nil
 ## Math
 
 ### Description
-5+3 --> 8
-5-3 --> 2
-5*3 --> 15
-5/3 --> 1.66666666666667
+5+3 --> 8  
+5-3 --> 2  
+5*3 --> 15  
+5/3 --> 1.66666666666667  
 5%3 --> 2
 
 ### Example
