@@ -97,11 +97,11 @@ end
 ```
 ## Logical Operators
 and, or, not
+```lua
 age = 13
 if (age < 14) or (age > 67) then print("you shouldnt work")
- 
-prin t(string.format("not true = %s", tostring(not true)))
-
+print(string.format("not true = %s", tostring(not true)))
+```
 ## Local
 
 ### Description
