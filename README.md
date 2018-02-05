@@ -34,7 +34,6 @@ isAble = true
 Everything is nil if it is not defined
 
 ## Table
-
 ### Description
 Tables are key value paired list, can be used to create arrays, lists, and even used to implement OOP
  
@@ -70,7 +69,6 @@ number --> tonumber(variable)
 table --> table.concat(variabel, ", ")
 
 ## Relational Operators
-
 ### Description
 greater than >
 smaller than <
@@ -174,7 +172,6 @@ for key, month in pairs(months) do
 end
 
 ## Multi table
-
 ### Description
 Nested Arrays, nested tables. These are the actual representation of objects or more complex structures than just arrays of strings
 
@@ -198,13 +195,13 @@ for key, value in pairs(aMultiTable) do
 end 
 
 ## Functions
-
 ### Description
 Functions are used to encapsulate functionality. In LUA you define functions by using the keyword "function" followed by the name of the function and the parameters. Closing it with and end is necessary. Functions can return Values, more than 1 or 2. If you know the exact amount of returning values, you can prepare the variables to hold the value. But if there are dynamically values that are getting returned you will have to look into the next block -> dynamic return functions
  
 In the example I used an regular expression, it makes it easier to filter for specific rules. Just like Phone numbers or other such things.
 
 ### Example
+```lua
 function getSum(num1, num2)
  return num1 + num2
 end
@@ -227,4 +224,4 @@ splitStrTable, numOfStr = splitStr("The Turtle")
 for j = 1, numOfStr - 1 do
  print(string.format("%d : %s", j, splitStrTable[j]))
 end
- 
+ ```
