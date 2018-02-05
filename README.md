@@ -185,7 +185,7 @@ end
 ```
 ## Multi table
 ### Description
-Nested Arrays, nested tables. These are the actual representation of objects or more complex structures than just arrays of strings
+Nested Arrays, nested tables. These can be used as a representation of objects or more complex structures and not just tables.
 
 ### Example
 ```lua
@@ -209,7 +209,7 @@ end
 ```
 ## Functions
 ### Description
-Functions are used to encapsulate functionality. In LUA you define functions by using the keyword "function" followed by the name of the function and the parameters. Closing it with and end is necessary. Functions can return Values, more than 1 or 2. If you know the exact amount of returning values, you can prepare the variables to hold the value. But if there are dynamically values that are getting returned you will have to look into the next block -> dynamic return functions
+In LUA you define functions by using the keyword "function" followed by the name of the function and the parameters. Closing it with an end is necessary. Functions can return Values, more than 1 or 2. If you know the exact amount of returning values, you can prepare the variables to hold the value. But if there are dynamically values that are getting returned you will have to look into the next block -> dynamic return functions
  
 In the example I used an regular expression, it makes it easier to filter for specific rules. Just like Phone numbers or other such things.
 
