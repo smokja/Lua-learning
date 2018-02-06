@@ -10,23 +10,23 @@ function convertnumbers(numbers)
   return _numbers
 end
 
-function getMaxLen(toSort) 
-  local highest = 0
+function getMaxVal(toSort) 
+  local maxVal = 0
   
   for key, value in pairs(toSort) do
-    if (value > highest) then
-      highest = value
+    if (value > maxVal) then
+      maxVal = value
     end
   end
   
-  return highest
+  return maxVal
 end
 
 
 function sort(toSort, divisor, maxDivisor) 
   local numbers = {}
   for i = 0, 9, 1 do
-    numbers[i] = {} --initialize every list
+    numbers[i] = {} --initialize every table
   end
   
   for key, value in pairs(toSort) do
@@ -44,7 +44,7 @@ function sort(toSort, divisor, maxDivisor)
 end
 
 function RadixSort(toSort)
-  local highest = getMaxLen(toSort)
+  local highest = getMaxVal(toSort)
   highest = tostring(highest)
   local maxLen = #highest
   local maxDivisor = 10^maxLen
