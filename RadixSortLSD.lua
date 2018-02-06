@@ -26,7 +26,7 @@ end
 function sort(toSort, divisor, maxDivisor) 
   local numbers = {}
   for i = 0, 9, 1 do
-    numbers[i] = {} --initialize every table
+    numbers[i] = {} --initialize every list
   end
   
   for key, value in pairs(toSort) do
@@ -47,11 +47,11 @@ function RadixSort(toSort)
   local highest = getMaxVal(toSort)
   highest = tostring(highest)
   local maxLen = #highest
-  local maxDivisor = 10^maxLen
+  local maxDivisor = 10^(maxLen-1)
   print(maxDivisor)
   return sort(toSort, 1, maxDivisor)
 end
 
-unsortedList = { 123, 435, 456, 456, 456,234, 567, 876, 234, 2345, 5865, 1234 }
+unsortedList = { 123, 435, 456, 456, 456,234, 567, 876, 234, 2345, 5865, 1234, 23534262, 2342, 3125, 36243, 546 }
 result = RadixSort(unsortedList)
 print(table.concat(result, ", "))
