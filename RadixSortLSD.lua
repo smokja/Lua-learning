@@ -44,9 +44,9 @@ function sort(toSort, divisor, maxDivisor)
 end
 
 function RadixSort(toSort)
-  local highest = getMaxVal(toSort)
-  highest = tostring(highest)
-  local maxLen = #highest
+  local maxVal = getMaxVal(toSort)
+  maxVal = tostring(maxVal)
+  local maxLen = #maxVal
   local maxDivisor = 10^(maxLen-1)
   print(maxDivisor)
   return sort(toSort, 1, maxDivisor)
