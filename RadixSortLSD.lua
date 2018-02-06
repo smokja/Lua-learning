@@ -22,9 +22,9 @@ function getMaxVal(toSort)
   return maxVal
 end
 
-
 function sort(toSort, divisor, maxDivisor) 
   local numbers = {}
+  
   for i = 0, 9, 1 do
     numbers[i] = {} --initialize every list
   end
@@ -36,6 +36,7 @@ function sort(toSort, divisor, maxDivisor)
   end
   
   local newlist = convertnumbers(numbers)
+  
   if (divisor == maxDivisor) then
     return newlist
   end
