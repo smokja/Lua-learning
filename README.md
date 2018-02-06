@@ -12,7 +12,7 @@ print("that ".."what") --> "das was"
 ```
 ## String
 ```lua
-name = "peter"
+name = "🅱️eter"
 multiline = [[multiline string]]
 longString = name .. multiline
 string.format("Pi = %.10f", math.pi) --> Pi = 3.1415926535
