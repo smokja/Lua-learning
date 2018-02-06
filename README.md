@@ -1,5 +1,4 @@
 # LUA Language
-Quicksort written in LUA
 
 ## Comments
 ```lua
