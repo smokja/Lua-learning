@@ -1,13 +1,13 @@
 function convertnumbers(numbers) 
-  local newlist = {}
+  local _numbers = {}
   
   for i = 0, 9, 1 do
     for innerKey, value in pairs(numbers[i]) do
-      table.insert(newlist, value)
+      table.insert(_numbers, value)
     end
   end
   
-  return newlist
+  return _numbers
 end
 
 function getMaxLen(toSort) 
