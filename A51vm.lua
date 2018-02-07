@@ -8,7 +8,6 @@ function init()
   local instructions = assemble("code.a51")
   if (instructions ~= nil) then  
     local result = vmexec(instructions)
-    print("count"..#result)
     for key, value in pairs(result) do
       print("Register: "..key)
       print("Value "..value)
@@ -42,12 +41,18 @@ function vmexec(opc)
       pc = pc + 3
     elseif (opc[pc] == HALT) then
        return registers
+    else 
+      print("unknown operation code, line "..opc[pc])
     end
   end
 end
 
 function split(line, regex)
   local values = {}
+  if (line == nil) then
+    return nil
+  end
+  
   for value in string.gmatch(line, regex) do 
     table.insert(values, value)
   end
@@ -61,7 +66,7 @@ end
 
 function parse_line(line) 
   local args = split(line, "%S+")
-  if (#args > 3) then
+  if (args == nil or #args > 3 ) then
     return nil
   end  
   
@@ -129,9 +134,11 @@ function assemble(file)
     elseif (operation == "HALT") then
       table.insert(instructions, HALT)
       break
-    else 
-      print("operation not known, line "..pc)
+    elseif (line == nil) then
+      print("no end point reached")
       return nil
+    else
+      print("operation not known, line "..pc)
     end
     
     pc = pc + 1
@@ -148,9 +155,11 @@ end
 
 function lines_from(file)
   if not file_exists(file) then return {} end
-  lines = {}
+  local lines = {}
   for line in io.lines(file) do 
-    lines[#lines + 1] = line
+    if (line ~= nil) then
+      lines[#lines + 1] = line
+    end
   end
   return lines
 end
