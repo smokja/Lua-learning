@@ -3,6 +3,11 @@ MOVE = 0x2
 MUL = 0x3
 ADD = 0x4
 HALT  = 0x5
+_LOAD = "LOAD"
+_MOVE = "MOVE"
+_MUL = "MUL"
+_ADD = "ADD"
+_HALT  = "HALT"
 
 function init()
   local instructions = assemble("code.a51")
@@ -61,7 +66,7 @@ function split(line, regex)
 end
 
 function is_operation(operation) 
-  return (operation == "HALT" or operation == "ADD" or operation == "MUL" or operation == "MOVE" or operation == "LOAD")
+  return (operation == _HALT or operation == _ADD or operation == _MUL or operation == _MOVE or operation == _LOAD)
 end
 
 function parse_line(line) 
@@ -95,7 +100,7 @@ function assemble(file)
   while (1) do
     local line = lines[pc]
     local operation, param1, param2 = parse_line(line)
-    if (operation == "MOVE") then
+    if (operation == _MOVE) then
       if (not declared_registers[param2]) then
         print("register not declared, line "..pc)
         return nil
@@ -108,7 +113,7 @@ function assemble(file)
         declared_registers[param1] = true
       end
       
-    elseif (operation == "ADD") then
+    elseif (operation == _ADD) then
       if (not declared_registers[param1]) then
         print("register not declared, line "..pc)
         return nil
@@ -117,12 +122,12 @@ function assemble(file)
       table.insert(instructions, ADD)
       table.insert(instructions, param1)
       table.insert(instructions, param2)
-    elseif (operation == "LOAD") then
+    elseif (operation == _LOAD) then
       table.insert(instructions, LOAD)
       table.insert(instructions, param1)
       table.insert(instructions, param2)
       declared_registers[param1] = true
-    elseif (operation == "MUL") then
+    elseif (operation == _MUL) then
       if (not declared_registers[param1]) then
         print("register not declared, line "..pc)
         return nil
@@ -131,7 +136,7 @@ function assemble(file)
       table.insert(instructions, MUL)
       table.insert(instructions, param1)
       table.insert(instructions, param2)
-    elseif (operation == "HALT") then
+    elseif (operation == _HALT) then
       table.insert(instructions, HALT)
       break
     elseif (line == nil) then
