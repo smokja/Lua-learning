@@ -137,10 +137,10 @@ math.randomseed(os.time()) -- good random value
 ```lua
 person = "hans"
  
-evaluation = peter == "hans" and "joe" or "mike"
+evaluation = person == "hans" and "joe" or "mike"
 print(jan) --> "joe"
  
-evaluation = peter == "michael" and "joe" or "mike"
+evaluation = person == "michael" and "joe" or "mike"
 print(jan) --> "mike"
 ```
 ## Type checking
