@@ -4,19 +4,16 @@ MUL = 0x3
 ADD = 0x4
 HALT  = 0x5
 
-function file_exists(file)
-  local f = io.open(file, "rb")
-  if f then f:close() end
-  return f ~= nil
-end
-
-function lines_from(file)
-  if not file_exists(file) then return {} end
-  lines = {}
-  for line in io.lines(file) do 
-    lines[#lines + 1] = line
+function init()
+  local instructions = assemble("code.a51")
+  if (instructions ~= nil) then  
+    local result = vmexec(instructions)
+    print("count"..#result)
+    for key, value in pairs(result) do
+      print("Register: "..key)
+      print("Value "..value)
+    end
   end
-  return lines
 end
 
 function vmexec(opc)
@@ -72,7 +69,6 @@ function parse_line(line)
   if (not is_operation(operation)) then
     return nil
   end
-  -- at this point operation is a valid operation, check params now
   
   local param1 = args[2]
   local param2 = args[3]
@@ -80,8 +76,6 @@ function parse_line(line)
   if (operation == nil and (tonumber(param1) == nil or tonumber(param2) == nil)) then
     return nil
   end
-  
-  -- at this point, operation is valid and the params are numbers
   
   return operation, param1, param2
 end
@@ -95,7 +89,7 @@ function assemble(file)
   
   while (1) do
     local line = lines[pc]
-    operation, param1, param2 = parse_line(line)
+    local operation, param1, param2 = parse_line(line)
     if (operation == "MOVE") then
       if (not declared_registers[param2]) then
         print("register not declared, line "..pc)
@@ -146,16 +140,21 @@ function assemble(file)
   return instructions
 end
 
-function init()
-  instructions = assemble("code.a51")
-  if (instructions ~= nil) then  
-    result = vmexec(instructions)
-    print("count"..#result)
-    for key, value in pairs(result) do
-      print("Register: "..key)
-      print("Value "..value)
-    end
-  end
+function file_exists(file)
+  local f = io.open(file, "rb")
+  if f then f:close() end
+  return f ~= nil
 end
+
+function lines_from(file)
+  if not file_exists(file) then return {} end
+  lines = {}
+  for line in io.lines(file) do 
+    lines[#lines + 1] = line
+  end
+  return lines
+end
+
+
 
 init()
