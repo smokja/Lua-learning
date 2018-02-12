@@ -249,7 +249,7 @@ using the standard library and standard in and out, the files get closed automat
 
 ### Example
 ```lua
-result, error = io.lines("code.a51")
+result, errmsg, errcode = io.lines("code.a51")
 
 if (result ~= nil) then
   for line in result do
