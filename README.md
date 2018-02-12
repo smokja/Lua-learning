@@ -244,6 +244,8 @@ io.close([file])
 io.flush()  
 io.lines([filename])  
 io.output([file])  
+using the standard library and standard in and out, the files get closed automatically when you iterate over them with a for loop, so you don't have to manually call file.close()
+
 
 ### Example
 ```lua
