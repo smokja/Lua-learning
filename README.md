@@ -237,3 +237,21 @@ for j = 1, numOfStr - 1 do
  print(string.format("%d : %s", j, splitStrTable[j]))
 end
  ```
+## Input/Output
+### Description
+There are some crucial commands for the io library:  
+io.close([file])  
+io.flush()  
+io.lines([filename])  
+io.output([file])  
+
+### Example
+```lua
+result, error = io.lines("code.a51")
+
+if (result ~= nil) then
+  for line in result do
+    print(line)
+  end
+end
+```
